@@ -21,9 +21,11 @@
                         <li><a href="faqs.html">FAQ's</a></li>
                         <li><a href="schedule.html">Schedule</a></li>
                         <li><a href="coaching.html">Team Officials</a></li>
+                        <li><a href="constitution.html">Constitution & Bylaws</a></li>
                     </ul>
                 </li>
                 <li><a href="gallery.html" class="active">Gallery</a></li>
+                <li><a href="newsletter.html">Newsletter</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="socials.html">Socials</a></li>
             </ul>
@@ -40,30 +42,75 @@
             <!-- Gallery Grid - Replace these with your own photos -->
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=600" alt="Dressage Training">
-                </div>
-                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=600" alt="Dressage Training" class="active">
                     <img src="https://images.unsplash.com/photo-1568572933382-74d440642117?w=600" alt="Horse and Rider">
-                </div>
-                <div class="gallery-item">
                     <img src="https://images.unsplash.com/photo-1551993005-75c4131b6bd8?w=600" alt="Competition">
                 </div>
                 <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1568572933382-74d440642117?w=600" alt="Horse and Rider" class="active">
                     <img src="https://images.unsplash.com/photo-1598632640487-6ea4a4e8b963?w=600" alt="Team Practice">
-                </div>
-                <div class="gallery-item">
                     <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600" alt="Dressage Arena">
                 </div>
                 <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1551993005-75c4131b6bd8?w=600" alt="Competition" class="active">
                     <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600" alt="Training Session">
-                </div>
-                <div class="gallery-item">
                     <img src="https://images.unsplash.com/photo-1553284966-19b8815c7817?w=600" alt="Horse">
                 </div>
                 <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1598632640487-6ea4a4e8b963?w=600" alt="Team Practice" class="active">
+                    <img src="https://images.unsplash.com/photo-1591608971362-f08b2a75731a?w=600" alt="Equestrian">
+                    <img src="https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=600" alt="Dressage Training">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600" alt="Dressage Arena" class="active">
+                    <img src="https://images.unsplash.com/photo-1568572933382-74d440642117?w=600" alt="Horse and Rider">
+                    <img src="https://images.unsplash.com/photo-1598632640487-6ea4a4e8b963?w=600" alt="Team Practice">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600" alt="Training Session" class="active">
+                    <img src="https://images.unsplash.com/photo-1551993005-75c4131b6bd8?w=600" alt="Competition">
                     <img src="https://images.unsplash.com/photo-1591608971362-f08b2a75731a?w=600" alt="Equestrian">
                 </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1553284966-19b8815c7817?w=600" alt="Horse" class="active">
+                    <img src="https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=600" alt="Dressage Training">
+                    <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600" alt="Dressage Arena">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1591608971362-f08b2a75731a?w=600" alt="Equestrian" class="active">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600" alt="Training Session">
+                    <img src="https://images.unsplash.com/photo-1568572933382-74d440642117?w=600" alt="Horse and Rider">
+                </div>
             </div>
+
+            <script>
+                // Gallery slideshow functionality
+                function startGallerySlideshow() {
+                    const galleryItems = document.querySelectorAll('.gallery-item');
+                    
+                    galleryItems.forEach((item, index) => {
+                        const images = item.querySelectorAll('img');
+                        let currentIndex = 0;
+                        
+                        // Stagger the start time for each gallery item
+                        setTimeout(() => {
+                            setInterval(() => {
+                                // Remove active class from current image
+                                images[currentIndex].classList.remove('active');
+                                
+                                // Move to next image
+                                currentIndex = (currentIndex + 1) % images.length;
+                                
+                                // Add active class to new image
+                                images[currentIndex].classList.add('active');
+                            }, 4000); // Change image every 4 seconds
+                        }, index * 500); // Stagger by 0.5 seconds per item
+                    });
+                }
+                
+                // Start slideshow when page loads
+                window.addEventListener('DOMContentLoaded', startGallerySlideshow);
+            </script>
 
             <div style="text-align: center; margin-top: 3rem;">
                 <p style="font-size: 1.1rem;"><strong>Want to see more?</strong> Follow us on <a href="socials.html" style="color: #e87722; text-decoration: none;">social media</a> for the latest photos and updates!</p>
