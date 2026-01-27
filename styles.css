@@ -273,8 +273,8 @@ section {
 
 /* Page Header */
 .page-header {
-    background: linear-gradient(rgba(3, 36, 77, 0.3), rgba(3, 36, 77, 0.3)),
-                url('https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?q=80&w=1600') center/cover;
+    background: linear-gradient(rgba(232, 244, 248, 0.7), rgba(232, 244, 248, 0.7)),
+                url('images/dressage1.jpg') center/cover;
     color: #03244d;
     padding: 8rem 2rem 3rem;
     text-align: left;
