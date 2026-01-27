@@ -231,6 +231,15 @@ section {
     transform: translate(-50%, -50%);
     object-fit: cover;
     opacity: 0.7;
+    pointer-events: none;
+}
+
+.split-orange video::-webkit-media-controls {
+    display: none !important;
+}
+
+.split-orange video::-webkit-media-controls-enclosure {
+    display: none !important;
 }
 
 .split-content {
