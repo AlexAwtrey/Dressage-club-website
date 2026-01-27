@@ -41,7 +41,17 @@ nav {
     font-size: 1.2rem;
     color: #03244d;
     font-weight: normal;
-    display: none; /* Hide logo text like in Wix version */
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo img {
+    height: 60px;
+    width: auto;
 }
 
 .logo .tagline {
