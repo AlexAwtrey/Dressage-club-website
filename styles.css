@@ -216,6 +216,21 @@ section {
 
 .split-orange {
     background-color: #e87722;
+    position: relative;
+    overflow: hidden;
+}
+
+.split-orange video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    opacity: 0.7;
 }
 
 .split-content {
