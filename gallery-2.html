@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Auburn Dressage Club</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Auburn Dressage Club</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#about">About</a>
+                    <ul class="dropdown-content">
+                        <li><a href="member-info.html">Member Information</a></li>
+                        <li><a href="faqs.html">FAQ's</a></li>
+                        <li><a href="schedule.html">Schedule</a></li>
+                        <li><a href="coaching.html">Team Officials</a></li>
+                        <li><a href="constitution.html">Constitution & Bylaws</a></li>
+                    </ul>
+                </li>
+                <li><a href="gallery.html" class="active">Gallery</a></li>
+                <li><a href="newsletter.html">Newsletter</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="socials.html">Socials</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <h2>Gallery</h2>
+    </section>
+
+    <section style="background-color: #e8f4f8;">
+        <div class="container">
+            
+            <!-- Gallery Grid - Your team photos! -->
+            <div class="gallery-grid">
+                <!-- Box 1: Mix of show, lesson, horse -->
+                <div class="gallery-item">
+                    <img src="images/show1.jpg" alt="Competition" class="active">
+                    <img src="images/lesson8.JPEG" alt="Training Session">
+                    <img src="images/horse6.JPEG" alt="Beautiful Horse">
+                </div>
+                <!-- Box 2: Lessons and barn -->
+                <div class="gallery-item">
+                    <img src="images/lesson1.jpg" alt="Riding Lesson" class="active">
+                    <img src="images/barn1.jpg" alt="Barn Life">
+                    <img src="images/show8.JPEG" alt="Show Day">
+                </div>
+                <!-- Box 3: Show and horses -->
+                <div class="gallery-item">
+                    <img src="images/show2.jpg" alt="Show Day" class="active">
+                    <img src="images/horse7.JPEG" alt="Our Horses">
+                    <img src="images/lesson9.JPEG" alt="Practice">
+                </div>
+                <!-- Box 4: Mixed variety -->
+                <div class="gallery-item">
+                    <img src="images/horse1.jpg" alt="Equine Partners" class="active">
+                    <img src="images/show3.jpg" alt="Team at Show">
+                    <img src="images/lesson10.JPEG" alt="Dressage Training">
+                </div>
+                <!-- Box 5: Lessons and shows -->
+                <div class="gallery-item">
+                    <img src="images/lesson2.jpg" alt="Training" class="active">
+                    <img src="images/horse8.JPEG" alt="Horse Portrait">
+                    <img src="images/show4.jpg" alt="Competition Day">
+                </div>
+                <!-- Box 6: Barn and action -->
+                <div class="gallery-item">
+                    <img src="images/barn2.jpg" alt="Our Facility" class="active">
+                    <img src="images/lesson11.JPEG" alt="Lesson Time">
+                    <img src="images/horse9.JPEG" alt="Beautiful Horse">
+                </div>
+                <!-- Box 7: Salutes and special -->
+                <div class="gallery-item">
+                    <img src="images/salute1.jpg" alt="Dressage Salute" class="active">
+                    <img src="images/show5.jpg" alt="Show Performance">
+                    <img src="images/horse10.JPEG" alt="Majestic Horse">
+                </div>
+                <!-- Box 8: High quality mix -->
+                <div class="gallery-item">
+                    <img src="images/dressage1.jpg" alt="Dressage Excellence" class="active">
+                    <img src="images/lesson12.JPEG" alt="Advanced Training">
+                    <img src="images/salute2.jpg" alt="Competition Salute">
+                </div>
+                <!-- Box 9: More variety -->
+                <div class="gallery-item">
+                    <img src="images/show6.jpg" alt="Team Competition" class="active">
+                    <img src="images/horse2.jpg" alt="Our Horses">
+                    <img src="images/lesson3.jpg" alt="Practice Session">
+                </div>
+                <!-- Box 10: Final mix -->
+                <div class="gallery-item">
+                    <img src="images/dressage2.jpg" alt="Dressage Performance" class="active">
+                    <img src="images/barn3.jpg" alt="Simplicity Horsemanship">
+                    <img src="images/show7.jpg" alt="Show Day">
+                </div>
+                <!-- Box 11: Peaceful moments -->
+                <div class="gallery-item">
+                    <img src="images/pasture.jpg" alt="Peaceful Pasture" class="active">
+                    <img src="images/lesson4.jpg" alt="Riding Lesson">
+                    <img src="images/horse3.jpg" alt="Beautiful Horse">
+                </div>
+                <!-- Box 12: Fun final box -->
+                <div class="gallery-item">
+                    <img src="images/hoots.jpg" alt="Hoots the Barn Dog" class="active">
+                    <img src="images/lesson5.jpg" alt="Training">
+                    <img src="images/horse5.jpg" alt="Equine Friend">
+                </div>
+            </div>
+
+            <script>
+                // Gallery slideshow functionality
+                function startGallerySlideshow() {
+                    const galleryItems = document.querySelectorAll('.gallery-item');
+                    
+                    galleryItems.forEach((item, index) => {
+                        const images = item.querySelectorAll('img');
+                        let currentIndex = 0;
+                        
+                        // Stagger the start time for each gallery item
+                        setTimeout(() => {
+                            setInterval(() => {
+                                // Remove active class from current image
+                                images[currentIndex].classList.remove('active');
+                                
+                                // Move to next image
+                                currentIndex = (currentIndex + 1) % images.length;
+                                
+                                // Add active class to new image
+                                images[currentIndex].classList.add('active');
+                            }, 4000); // Change image every 4 seconds
+                        }, index * 500); // Stagger by 0.5 seconds per item
+                    });
+                }
+                
+                // Start slideshow when page loads
+                window.addEventListener('DOMContentLoaded', startGallerySlideshow);
+            </script>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <p style="font-size: 1.1rem;"><strong>Want to see more?</strong> Follow us on <a href="socials.html" style="color: #e87722; text-decoration: none;">social media</a> for the latest photos and updates!</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Auburn Dressage Club. All rights reserved.</p>
+            <p>Affiliated with the Intercollegiate Dressage Association</p>
+        </div>
+    </footer>
+</body>
+</html>
