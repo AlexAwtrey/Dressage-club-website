@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auburn Dressage Club</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
+                    <img src="images/logo.png" alt="Dressage Club at Auburn Logo" style="height: 60px; margin-right: 15px;">
+                    <div>
+                        <h1 style="display: block; margin: 0;">Auburn Dressage Club</h1>
+                    </div>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li class="dropdown">
+                    <a href="#about">About</a>
+                    <ul class="dropdown-content">
+                        <li><a href="member-info.html">Member Information</a></li>
+                        <li><a href="faqs.html">FAQ's</a></li>
+                        <li><a href="schedule.html">Schedule</a></li>
+                        <li><a href="coaching.html">Team Officials</a></li>
+                        <li><a href="constitution.html">Constitution & Bylaws</a></li>
+                    </ul>
+                </li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="newsletter.html">Newsletter</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="socials.html">Socials</a></li>
+                <li><a href="sponsors.html">Sponsors</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <img src="images/logo.png" alt="Dressage Club at Auburn Logo" style="width: 200px; height: 200px; margin-bottom: 2rem; border-radius: 50%;">
+                <h2>Welcome to Dressage<br>Club at Auburn</h2>
+                <p>We are a club dedicated to fostering a passion for dressage in association with Intercollegiate Dressage Association (IDA). Explore our team pages and events, and join the team!</p>
+                <a href="https://groupme.com/join_group/107013952/FBG4y1u3" target="_blank" class="cta-button">Join Our Club</a>
+            </div>
+        </section>
+
+        <div class="split-section">
+            <div class="split-orange">
+                <video autoplay loop muted playsinline id="video1">
+                    <source src="videos/video1.MP4" type="video/mp4">
+                </video>
+            </div>
+            <div class="split-content">
+                <h3>Our Dedication</h3>
+                <p>Building a supportive equestrian community where riders of all levels can learn, grow, and compete together through the art of dressage.</p>
+            </div>
+        </div>
+
+        <div class="split-section">
+            <div class="split-content">
+                <h3>Our Vision</h3>
+                <p>Creating opportunities for Auburn students to excel in dressage while developing confident riders who embody horsemanship, sportsmanship, and a lifelong love of the sport.</p>
+                <a href="member-info.html" class="cta-button">Learn More</a>
+            </div>
+            <div class="split-orange">
+                <video autoplay loop muted playsinline id="video2">
+                    <source src="videos/video2.MP4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+
+        <script>
+            // Force videos to play - multiple attempts
+            function forceVideoPlay() {
+                const video1 = document.getElementById('video1');
+                const video2 = document.getElementById('video2');
+                
+                function attemptPlay(video) {
+                    if (!video) return;
+                    
+                    video.muted = true;
+                    video.setAttribute('muted', '');
+                    video.setAttribute('playsinline', '');
+                    video.setAttribute('autoplay', '');
+                    
+                    const playPromise = video.play();
+                    
+                    if (playPromise !== undefined) {
+                        playPromise.then(() => {
+                            console.log('Video playing!');
+                        }).catch((error) => {
+                            console.log('Autoplay blocked, trying again...', error);
+                            // Try again after a short delay
+                            setTimeout(() => {
+                                video.play();
+                            }, 100);
+                        });
+                    }
+                }
+                
+                attemptPlay(video1);
+                attemptPlay(video2);
+                
+                // Use Intersection Observer to play when in view - more aggressive
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const video = entry.target;
+                            video.muted = true;
+                            video.play().catch(() => {
+                                // Silent fail
+                            });
+                        }
+                    });
+                }, { 
+                    threshold: 0.1, // Trigger when just 10% visible
+                    rootMargin: '50px' // Start playing 50px before entering viewport
+                });
+                
+                if (video1) observer.observe(video1);
+                if (video2) observer.observe(video2);
+            }
+            
+            // Try when DOM loads
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', forceVideoPlay);
+            } else {
+                forceVideoPlay();
+            }
+            
+            // Also try when window loads
+            window.addEventListener('load', forceVideoPlay);
+            
+            // Try on scroll
+            let scrollAttempted = false;
+            window.addEventListener('scroll', function() {
+                if (!scrollAttempted) {
+                    scrollAttempted = true;
+                    const video1 = document.getElementById('video1');
+                    const video2 = document.getElementById('video2');
+                    if (video1) video1.play();
+                    if (video2) video2.play();
+                }
+            }, { once: true });
+            
+            // Try on any user interaction
+            document.addEventListener('click', function() {
+                const video1 = document.getElementById('video1');
+                const video2 = document.getElementById('video2');
+                if (video1) video1.play();
+                if (video2) video2.play();
+            }, { once: true });
+            
+            // Try on touchstart for mobile
+            document.addEventListener('touchstart', function() {
+                const video1 = document.getElementById('video1');
+                const video2 = document.getElementById('video2');
+                if (video1) video1.play();
+                if (video2) video2.play();
+            }, { once: true });
+        </script>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Auburn Dressage Club. All rights reserved.</p>
+            <p>Affiliated with the Intercollegiate Dressage Association</p>
+        </div>
+    </footer>
+</body>
+</html>
