@@ -595,16 +595,17 @@ footer p {
     }
     
     .hero-content h2 {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
     
     .hero-content p {
-        font-size: 1.1rem;
+        font-size: 0.95rem;
+        line-height: 1.6;
     }
 
     .hero-content img {
-        width: 150px;
-        height: 150px;
+        width: 120px;
+        height: 120px;
     }
 
     .split-section {
@@ -612,11 +613,16 @@ footer p {
     }
 
     .split-content {
-        padding: 2rem;
+        padding: 2rem 1.5rem;
     }
 
     .split-content h3 {
-        font-size: 2rem;
+        font-size: 1.75rem;
+    }
+
+    .split-content p {
+        font-size: 0.95rem;
+        line-height: 1.6;
     }
 
     .team-member {
@@ -624,7 +630,16 @@ footer p {
     }
 
     .team-info {
-        padding: 2rem;
+        padding: 1.5rem;
+    }
+
+    .team-info h3 {
+        font-size: 1.25rem;
+    }
+
+    .team-info p {
+        font-size: 0.9rem;
+        line-height: 1.6;
     }
 
     .page-header {
@@ -632,11 +647,27 @@ footer p {
     }
 
     .page-header h2 {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
     .content-section h3 {
-        font-size: 2rem;
+        font-size: 1.5rem;
+    }
+
+    .content-section p,
+    .content-section li {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    .content-section ul,
+    .content-section ol {
+        padding-left: 1.25rem;
+    }
+
+    .cta-button {
+        font-size: 0.95rem;
+        padding: 0.85rem 1.75rem;
     }
 
     .gallery-grid {
@@ -647,5 +678,34 @@ footer p {
     .social-links {
         flex-direction: column;
         gap: 1rem;
+    }
+
+    .social-card h3 {
+        font-size: 1.25rem;
+    }
+
+    .social-card p {
+        font-size: 0.9rem;
+    }
+
+    /* Additional mobile optimizations */
+    body {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+    }
+
+    h4 {
+        font-size: 1.1rem;
     }
 }
