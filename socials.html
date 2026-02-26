@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Socials - Auburn Dressage Club</title>
+    <title>Social Media | Auburn Dressage Club</title>
+    <meta name="description" content="Follow Auburn Dressage Club on Instagram @audressageclub, join our GroupMe, and connect on Facebook for updates and photos.">
+    <meta name="keywords" content="Auburn dressage Instagram, Auburn dressage social media, audressageclub, Auburn equestrian Instagram">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -79,18 +81,21 @@
             <div style="max-width: 1000px; margin: 0 auto; margin-bottom: 4rem;">
                 <h3 style="text-align: center; color: #03244d; font-size: 2.5rem; margin-bottom: 2rem; font-weight: normal;">Latest from Instagram</h3>
                 
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2rem;">
-                    <!-- Post 1 -->
-                    <a href="https://www.instagram.com/p/DUEpwjAEY7z/" target="_blank" style="display: block; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s;">
-                        <img src="images/show1.jpg" alt="Instagram Post" style="width: 100%; height: 350px; object-fit: cover;">
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2rem;" id="instagram-grid">
+                    <!-- Post 1 - Rotating -->
+                    <a href="https://www.instagram.com/audressageclub/" target="_blank" class="instagram-slot" style="display: block; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s; position: relative; height: 350px;">
+                        <img src="images/fsu-show-1.jpg" alt="Instagram Post" class="active" style="position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1s;">
+                        <img src="images/fsu-show-2.jpg" alt="Instagram Post" style="position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1s;">
                     </a>
-                    <!-- Post 2 -->
-                    <a href="https://www.instagram.com/p/DO6-w8UkcXZ/" target="_blank" style="display: block; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s;">
-                        <img src="images/dressage1.jpg" alt="Instagram Post" style="width: 100%; height: 350px; object-fit: cover;">
+                    <!-- Post 2 - Rotating -->
+                    <a href="https://www.instagram.com/audressageclub/" target="_blank" class="instagram-slot" style="display: block; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s; position: relative; height: 350px;">
+                        <img src="images/fsu-show-3.jpg" alt="Instagram Post" class="active" style="position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1s;">
+                        <img src="images/fsu-show-4.jpg" alt="Instagram Post" style="position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1s;">
                     </a>
-                    <!-- Post 3 -->
-                    <a href="https://www.instagram.com/reel/DQCamHOEZhy/" target="_blank" style="display: block; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s;">
-                        <img src="images/salute1.jpg" alt="Instagram Post" style="width: 100%; height: 350px; object-fit: cover;">
+                    <!-- Post 3 - Rotating -->
+                    <a href="https://www.instagram.com/audressageclub/" target="_blank" class="instagram-slot" style="display: block; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s; position: relative; height: 350px;">
+                        <img src="images/fsu-show-5.jpg" alt="Instagram Post" class="active" style="position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1s;">
+                        <img src="images/fsu-show-1.jpg" alt="Instagram Post" style="position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1s;">
                     </a>
                 </div>
 
@@ -100,6 +105,27 @@
                     </a>
                 </div>
             </div>
+
+            <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const slots = document.querySelectorAll('.instagram-slot');
+                
+                slots.forEach((slot, slotIndex) => {
+                    const images = slot.querySelectorAll('img');
+                    let currentIndex = 0;
+                    
+                    // Show first image
+                    if (images[0]) images[0].style.opacity = '1';
+                    
+                    // Rotate images every 4 seconds with stagger
+                    setInterval(() => {
+                        images[currentIndex].style.opacity = '0';
+                        currentIndex = (currentIndex + 1) % images.length;
+                        images[currentIndex].style.opacity = '1';
+                    }, 4000 + (slotIndex * 1000)); // Stagger by 1 second per slot
+                });
+            });
+            </script>
 
         </div>
     </section>
